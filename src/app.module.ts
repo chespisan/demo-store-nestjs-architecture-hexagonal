@@ -1,11 +1,10 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { DatabaseModule } from './config/module-mongo/database.module';
-import { ProductModule } from './product/infrastructure/modules/product.module';
-import configuration from './config/configuration';
+import { DatabaseModule } from 'src/config/module-mongo/database.module';
+import { ProductModule } from 'src/product/infrastructure/modules/product.module';
+import { CategoryModule } from 'src/category/infrastructure/modules/category/category.module';
+import configuration from 'src/config/configuration';
 
 @Module({
   imports: [
@@ -15,8 +14,9 @@ import configuration from './config/configuration';
     }),
     DatabaseModule,
     ProductModule,
+    CategoryModule,
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [],
+  providers: [],
 })
 export class AppModule {}

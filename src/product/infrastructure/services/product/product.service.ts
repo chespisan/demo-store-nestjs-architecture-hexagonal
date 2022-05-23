@@ -33,17 +33,21 @@ export class ProductService implements ProductRepository {
   }
 
   async getAllProducts(params: ParamsEntity): Promise<ProductEntity[]> {
-    if (params) {
-      const { offset, limit } = params;
-      const listProducts = await this.productModel
-        .find()
-        .skip(offset)
-        .limit(limit)
-        .exec();
+    try {
+      if (params) {
+        const { offset, limit } = params;
+        const listProducts = await this.productModel
+          .find()
+          .skip(offset)
+          .limit(limit)
+          .exec();
+        return listProducts;
+      }
+      const listProducts = await this.productModel.find().exec();
       return listProducts;
+    } catch (error) {
+      throw new BadRequestException('Product not get');
     }
-    const listProducts = await this.productModel.find().exec();
-    return listProducts;
   }
 
   async getOneProduct(productId: string): Promise<ProductEntity> {
@@ -61,7 +65,7 @@ export class ProductService implements ProductRepository {
       const newProduct = new this.productModel(product);
       return newProduct.save();
     } catch (error) {
-      throw new BadRequestException(`Product not save`);
+      throw new BadRequestException(`Product not create`);
     }
   }
 
