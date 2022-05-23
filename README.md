@@ -1,5 +1,6 @@
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo" /></a>
+  <a href="http://nestjs.com/" target="blank"><img src="https://miro.medium.com/max/1400/1*yR4C1B-YfMh5zqpbHzTyag.png" width="320" alt="Nest Logo" /></a>
 </p>
 
 [circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
@@ -24,7 +25,22 @@
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Este es un demo con Nestjs + Arquitectura Hexagonal, es un crud con dos entidades(product, category) esta conectado a una DB en Mongo, incluye el docker compose para levantar la DB local, se agrega una colleccion en postman con los endpoints, 
+- Nestjs
+- MongoDB
+- Docker
+
+Deberan crear un .env con las siguientes variables
+
+- PORT
+- DATABASE_NAME
+- DATABASE_USER
+- DATABASE_PASS
+- DATABASE_HOST
+- DATABASE_PORT
+- DATABASE_CONNECTION
+
+
 
 ## Installation
 
