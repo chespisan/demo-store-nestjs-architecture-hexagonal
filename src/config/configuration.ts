@@ -11,5 +11,6 @@ export default registerAs('config', () => {
       port: parseInt(process.env.DATABASE_PORT, 10) || 5432,
       connection: process.env.DATABASE_CONNECTION,
     },
+    jwtSecret: process.env.JWT_SECRET,
   };
 });
